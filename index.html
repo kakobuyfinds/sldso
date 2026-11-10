@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#351938">
+  <title>HooBuy spreadsheet guide | Finds, size checks and QC</title>
+  <meta name="description" content="Browse 10 CAFANS categories and use this independent HooBuy spreadsheet guide to check product links, compare sizes, read QC photos and estimate parcel costs.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="HooBuy spreadsheet | A buyer’s field guide">
+  <meta property="og:description" content="Start with a category, verify the listing and compare fit, QC photos and shipping costs before ordering.">
+  <meta property="og:image" content="https://static.nike.com/a/images/w_1000,c_limit,f_jpg,q_auto:eco/1b7fc9f7-ad93-4309-9af5-891e5994851b/NIKE+P-6000+ESS.png">
+  <meta property="og:image:alt" content="Nike P-6000 sneaker in white, silver and volt">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="https://www.cafans.com/favicon.ico">
+  <link rel="preconnect" href="https://static.nike.com">
+
+  <!-- index.html
+  Search notes: Bing returned no results in the accessible English search and RSS responses.
+  The following ten relevant public search results informed the page. Their Bing positions are unverified.
+  rep.tools/guides/hoobuy-spreadsheet: marketplace link structure.
+  hoobuy.io: QC photos and category navigation.
+  hoobuy-spreadsheet.com: finds and product discovery.
+  hoobuysheets.net: original titles, link checks and indicative conversions.
+  hoobuy-sheets.net: category coverage, including jerseys and headwear.
+  hoobuyimport.com: finds-oriented headings and category entry points.
+  hoobuyindex.com: warehouse QC, sizing and shipping topics.
+  hoospreadsheet.net/hoobuy-spreadsheet/: product-level category and marketplace labels.
+  hoobuys.net/hoobuy-spreadsheet-guide: tracking warehouse and dispatch handoffs.
+  hoobuyspreadsheet.app: variant checks and cost comparisons.
+
+  Secondary keywords: HooBuy finds; HooBuy product links; HooBuy size guide; HooBuy QC photos.
+  Long-tail targets: what is a HooBuy spreadsheet; how to compare HooBuy finds;
+  how to check a product link; how to verify a marketplace item ID;
+  how to spot a stale spreadsheet row; how to record a product variant;
+  how to measure feet for sneakers; foot length versus insole length;
+  how to measure a hoodie flat; pit-to-pit hoodie width;
+  how to compare T-shirt body length; how to measure jacket sleeves;
+  how to measure shorts inseam; how to check cap circumference;
+  how to check matching set sizes; how to inspect jersey printing;
+  how to measure a bracelet for fit; which angles to request for shoe QC;
+  how to compare two shoes in QC photos; catalog photo versus warehouse photo;
+  do QC photos prove authenticity; what a CNY listing price covers;
+  how to compare international parcel quotes; actual versus volumetric weight;
+  how to track warehouse arrivals; what to do when a product link changes.
+
+  Set the canonical and og:url to the final public address when it is known.
+  -->
+  <style>
+    :root{color-scheme:light;--paper:#fbf5f1;--ink:#281c29;--plum:#351938;--berry:#742751;--muted:#62505e;--line:#ddcbd3;--rose:#f7dce3;--light:#fffaf7}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    a{color:inherit;text-underline-offset:.22em}
+    a:focus-visible,summary:focus-visible{outline:3px solid #a23269;outline-offset:4px}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2{line-height:1.06;letter-spacing:-.04em}
+    h2{font-size:clamp(1.85rem,4vw,3rem)}
+    h3{font-size:1.15rem;line-height:1.25}
+    img{display:block;max-width:100%;height:auto}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    .bar,.foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.65rem 1.25rem;padding-block:1rem}
+    .brand{font-weight:850;font-size:1.15rem;letter-spacing:-.03em}
+    .label{font-size:.73rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .bar .label,.note{color:var(--muted)}
+    .cover{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);background:var(--plum);color:var(--light);border-radius:1.1rem;overflow:hidden}
+    .intro{padding:clamp(1.45rem,5vw,4rem);align-self:center}
+    .intro .label{color:#ffbed4;margin-bottom:.8rem}
+    h1{font-size:clamp(2.35rem,6.2vw,5.4rem);overflow-wrap:break-word}
+    .intro p:last-child{max-width:38rem;margin-top:1.15rem;color:#f3e2ed}
+    .cover-photo{background:#f2f1f0;color:var(--ink);display:grid;grid-template-rows:1fr auto}
+    .cover-photo img{width:100%;height:100%;min-height:0;max-height:26rem;object-fit:contain}
+    .cover-photo figcaption{padding:.5rem .85rem;background:#e9dce4;font-size:.78rem}
+    .directory{margin:1rem 0 3.25rem;padding:1rem;background:var(--rose);border-radius:1rem}
+    .directory h2{font-size:1.2rem;letter-spacing:0;margin-bottom:.7rem}
+    .directory ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.45rem;list-style:none;padding:0;margin:0}
+    .directory a{height:100%;min-height:3rem;display:flex;gap:.35rem;align-items:center;justify-content:space-between;padding:.45rem .65rem;background:var(--light);border:1px solid #e4c6d2;border-radius:.45rem;text-decoration:none;font-size:.88rem;font-weight:750;overflow-wrap:anywhere}
+    .directory a:hover{background:#fff;border-color:var(--berry)}
+    .directory a span{color:var(--berry)}
+    .section{margin-block:3.25rem}
+    .section>.label,.faq .label{color:var(--berry);margin-bottom:.5rem}
+    .section h2+p,.faq h2+p{margin-top:.8rem}
+    .section>p{max-width:68ch}
+    .casebook{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem;margin-top:1.25rem}
+    .casebook article{padding:1.1rem;background:var(--light);border:1px solid var(--line);border-radius:.65rem}
+    .casebook h3{margin-bottom:.45rem}
+    .casebook .label{display:block;color:var(--berry);margin-bottom:.45rem}
+    .lookbook{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:1.2rem}
+    .lookbook figure{overflow:hidden;border:1px solid var(--line);border-radius:.65rem;background:var(--light)}
+    .lookbook img{width:100%;aspect-ratio:1;object-fit:contain;background:#f1eeef}
+    .lookbook figcaption{padding:.75rem;font-size:.86rem}
+    .lookbook strong{display:block;margin-bottom:.2rem}
+    .sample{background:#eedfe9;border-left:.3rem solid var(--berry);padding:1rem 1.15rem;margin-top:1rem;border-radius:0 .5rem .5rem 0}
+    .sample p+p{margin-top:.35rem}
+    .faq{border-top:1px solid var(--line);padding-top:2.15rem}
+    .faq h2{margin-bottom:1rem}
+    .faq details{border-top:1px solid var(--line)}
+    .faq details:last-child{border-bottom:1px solid var(--line)}
+    .faq summary{cursor:pointer;padding:.85rem .2rem;font-weight:750}
+    .faq details p{max-width:68ch;padding:0 .2rem .9rem}
+    .foot{border-top:1px solid var(--line);font-size:.86rem;color:var(--muted)}
+    @media(max-width:54rem){.directory ul{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:40rem){
+      .cover,.casebook{grid-template-columns:1fr}
+      .cover-photo img{height:auto;max-height:13rem;aspect-ratio:1.7}
+      .lookbook,.directory ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .section{margin-block:2.5rem}
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "HooBuy spreadsheet",
+        "description": "An independent guide to verifying product links, comparing sizes, reading QC photos and estimating parcel costs.",
+        "inLanguage": "en",
+        "image": "https://static.nike.com/a/images/w_1000,c_limit,f_jpg,q_auto:eco/1b7fc9f7-ad93-4309-9af5-891e5994851b/NIKE+P-6000+ESS.png",
+        "articleSection": ["Shortlist and verify", "What to look for in product photos", "Your first parcel estimate"]
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a HooBuy spreadsheet?",
+            "acceptedAnswer": {"@type": "Answer", "text": "It is usually a community-maintained list of product links organized by category. Entries may include a size chart, a listed price or quality control photos. Check the live listing for the exact variant."}
+          },
+          {
+            "@type": "Question",
+            "name": "What if a HooBuy product link opens a different item?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Compare the marketplace, item ID and selected variant with your notes. If you cannot match all three to the intended item, remove the link from your shortlist."}
+          },
+          {
+            "@type": "Question",
+            "name": "Can HooBuy QC photos prove a branded item is genuine?",
+            "acceptedAnswer": {"@type": "Answer", "text": "QC photos can show visible condition, construction and labels. For authenticity, look for verifiable seller provenance or an independent authentication service."}
+          },
+          {
+            "@type": "Question",
+            "name": "Does the spreadsheet price include international shipping?",
+            "acceptedAnswer": {"@type": "Answer", "text": "Check the cost breakdown at checkout. The listed item price may exclude local delivery, service or payment fees, international freight and destination charges."}
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/sldso/">
+</head>
+<body>
+  <header class="wrap bar">
+    <a class="brand" href="https://www.cafans.com">cafans.com</a>
+    <span class="label">Independent buyer’s field guide</span>
+  </header>
+
+  <main class="wrap">
+    <section class="cover" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="label">From a product link to a shortlist</p>
+        <h1 id="page-title">HooBuy spreadsheet</h1>
+        <p>Choose a CAFANS category, then check the live listing, the exact size and the photos before committing to an order. This field guide shows what to record at each step.</p>
+      </div>
+      <figure class="cover-photo">
+        <img src="https://static.nike.com/a/images/w_540,c_limit,f_webp,q_auto:eco/1b7fc9f7-ad93-4309-9af5-891e5994851b/NIKE+P-6000+ESS.png" srcset="https://static.nike.com/a/images/w_540,c_limit,f_webp,q_auto:eco/1b7fc9f7-ad93-4309-9af5-891e5994851b/NIKE+P-6000+ESS.png 540w, https://static.nike.com/a/images/w_1000,c_limit,f_jpg,q_auto:eco/1b7fc9f7-ad93-4309-9af5-891e5994851b/NIKE+P-6000+ESS.png 1000w" sizes="(max-width:40rem) calc(100vw - 2rem), (max-width:74rem) 40vw, 460px" width="540" height="675" alt="Nike P-6000 sneaker with white mesh, silver overlays and a volt Swoosh" loading="eager" fetchpriority="high">
+        <figcaption>Nike P-6000 &middot; Footwear reference</figcaption>
+      </figure>
+    </section>
+
+    <nav class="directory" aria-labelledby="directory-title">
+      <h2 id="directory-title">Browse CAFANS categories</h2>
+      <ul>
+        <li><a href="https://cafans.com/category-911-Shoes.html">Shoes <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hoodies/Sweaters <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-913-T-Shirts.html">T-Shirts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-914-Jackets.html">Jackets <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Pants/Shorts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-916-Headwear.html">Headwear <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-917-Sets.html">Sets <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Underwear/underpants <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-919-Jersey.html">Jersey <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://cafans.com/category-920-Accessories.html">Accessories <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+
+    <section class="section" aria-labelledby="shortlist">
+      <p class="label">Buying guide</p>
+      <h2 id="shortlist">Shortlist and verify</h2>
+      <p>A HooBuy spreadsheet is a starting point for finding product links. A useful shortlist records enough detail to identify the same item later, even when a seller edits the title or changes the default color.</p>
+      <div class="casebook">
+        <article>
+          <span class="label">01 &middot; The listing</span>
+          <h3>Compare HooBuy finds by item ID</h3>
+          <p>Open HooBuy product links and record the marketplace, item ID, seller and selected color and size. If two rows show the same item ID on the same marketplace, compare the variants before treating them as separate finds. Reopen the listing before paying to catch stale links or changed options.</p>
+        </article>
+        <article>
+          <span class="label">02 &middot; The fit</span>
+          <h3>Make a HooBuy size guide for your shortlist</h3>
+          <p>Measure both feet in centimeters and check whether the shoe chart uses foot length or insole length. For a hoodie, lay one you own flat and measure pit to pit. Compare T-shirt body length and jacket sleeve length from the same measuring points used in the listing.</p>
+        </article>
+        <article>
+          <span class="label">03 &middot; The details</span>
+          <h3>Check fit beyond the size label</h3>
+          <p>For shorts, compare the inseam and waist. For headwear, check the adjustment range against your head circumference. Check both pieces of a matching set and confirm the waistband measurement on underwear. For jerseys, ask for a straight-on view of any name or number print.</p>
+        </article>
+        <article>
+          <span class="label">04 &middot; The evidence</span>
+          <h3>Read HooBuy QC photos as a set</h3>
+          <p>Compare the warehouse photo with the catalog image and your selected variant. For shoes, request both sides, both heels and the outsoles. When checking a pair for mismatches, ask for both shoes in one frame. If a measurement matters, ask for a ruler in the photo.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="photo-guide">
+      <p class="label">Visual reference</p>
+      <h2 id="photo-guide">What to look for in product photos</h2>
+      <p class="note">Brand imagery illustrates the checks below. Confirm availability and product details on the live listing.</p>
+      <div class="lookbook">
+        <figure>
+          <img src="https://media.gucci.com/style/DarkGray_Center_0_0_490x490/1766079932/851724_XKFBC_1000_001_100_0000_Light-knit-cotton-wool-jumper-with-intarsia.jpg" width="490" height="490" alt="Black Gucci cotton-wool crewneck jumper with knit intarsia" loading="lazy" decoding="async">
+          <figcaption><strong>Gucci knitwear</strong> Ask for a flat photo showing the neck, cuffs and hem.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://sg.louisvuitton.com/images/is/image/lv/1/PP_VP_M/louis-vuitton--M5544M_PM2_Front%20view.jpg?wid=450&amp;hei=522" width="450" height="522" alt="Beige Louis Vuitton LV League cap with tonal LV initials" loading="lazy" decoding="async">
+          <figcaption><strong>Louis Vuitton headwear</strong> Check the strap and the shape of the brim.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/013J600A0677C080_SBG_E01-1?$r4x5_raw$&amp;crop=0,0,4000,5000&amp;wid=355&amp;hei=444&amp;scale=0.2219&amp;bfc=on&amp;qlt=80" width="355" height="444" alt="White Dior CD Icon crewneck T-shirt" loading="lazy" decoding="async">
+          <figcaption><strong>Dior T-shirt</strong> Ask for a close-up of the chest embroidery and collar.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.hermes.com/is/image/hermesproduct/700001FP8A_front_wm_101?wid=450&amp;hei=600&amp;fit=fit&amp;$product_default_bg$" width="450" height="600" alt="Orange Hermès Clic H bracelet with a silver-tone H clasp" loading="lazy" decoding="async">
+          <figcaption><strong>Hermès bracelet</strong> Compare the inner circumference and ask to see the clasp open.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <article class="section" aria-labelledby="parcel">
+      <p class="label">Shipping notebook</p>
+      <h2 id="parcel">Your first parcel estimate</h2>
+      <p>Keep the CNY listing price separate from local delivery, service fees, currency conversion and international freight. Compare quotes for the same destination, parcel dimensions and service. Check whether the carrier bills on actual or volumetric weight and whether the quote includes destination charges.</p>
+      <div class="sample">
+        <p><strong>Keep one record per item.</strong> Save the item ID, variant, order reference, warehouse arrival and QC status. If an order arrives in separate parcels, record the tracking number for each parcel.</p>
+        <p>When you have the packed dimensions, compare the quote again before authorizing dispatch.</p>
+      </div>
+    </article>
+
+    <section class="section faq" aria-labelledby="faq">
+      <p class="label">Quick answers</p>
+      <h2 id="faq">HooBuy spreadsheet FAQ</h2>
+      <details open>
+        <summary>What is a HooBuy spreadsheet?</summary>
+        <p>It is usually a community-maintained list of product links organized by category. Entries may include a size chart, a listed price or quality control photos. Check the live listing for the exact variant.</p>
+      </details>
+      <details>
+        <summary>What if a HooBuy product link opens a different item?</summary>
+        <p>Compare the marketplace, item ID and selected variant with your notes. If you cannot match all three to the intended item, remove the link from your shortlist.</p>
+      </details>
+      <details>
+        <summary>Can HooBuy QC photos prove a branded item is genuine?</summary>
+        <p>QC photos can show visible condition, construction and labels. For authenticity, look for verifiable seller provenance or an independent authentication service.</p>
+      </details>
+      <details>
+        <summary>Does the spreadsheet price include international shipping?</summary>
+        <p>Check the cost breakdown at checkout. The listed item price may exclude local delivery, service or payment fees, international freight and destination charges.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>Independent guide. Brand names identify visual references.</p>
+    <a href="https://www.cafans.com">Explore cafans.com</a>
+  </footer>
+</body>
+</html>
